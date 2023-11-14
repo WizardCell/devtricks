@@ -34,7 +34,7 @@ In this Actor, I've defined an Enum `EAbilitySystemCreationPolicy` that determin
 
 {% highlight c++ %}
 /**
- *	Defines how a the Ability System is loaded (if ever).
+ *	Defines how the Ability System is loaded (if ever).
  */
 UENUM(BlueprintType)
 enum class EAbilitySystemCreationPolicy : uint8
@@ -197,7 +197,7 @@ void AMyGameplayActor::SetPendingAttributeFromReplication(const FGameplayAttribu
 }
 {% endhighlight %}
 
-As we can see, if the policy is `Lazy`, the first time we call `GetAbilitySystemComponent()` through any of the ASC API functions, the ASC will get created and initialized. The `PreReplication` function and our proxy `ReplicatedAbilitySystemComponent` variable will make sure `AbilitySystemComponent` will get to the client and Server properly.
+As we can see, if the policy is `Lazy`, the first time we call `GetAbilitySystemComponent()` through any of the ASC API functions, the ASC will get created and initialized. The `PreReplication` function and our proxy `ReplicatedAbilitySystemComponent` variable will make sure `AbilitySystemComponent` will get to the client and server properly.
 
 ## Pending Attribute Replication
 
