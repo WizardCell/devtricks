@@ -54,12 +54,12 @@ void AMyPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeP
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	// We make sure only simulated proxies get this repli property
+	// We make sure only simulated proxies get this replicated property
 	DOREPLIFETIME_CONDITION(AMyPawn, LastTimePlayedMelody, COND_SimulatedOnly);
 }
 {% endhighlight %}
 
-To play the melody at a specific time we are going to use `SpawnSoundAttached`, since it contains a parameter `StartTime` that we can input to start the sound at a time. For that, we created the following function that we should call **locally**, which starts playing a melody inmediately. As we can see, the function also notifies the server so that the rest of the clients can also play it.
+To play the melody at a specific time we are going to use `SpawnSoundAttached`, since it contains a parameter `StartTime` that we can input to start the sound at a time. For that, we created the following function that we should call **locally**, which starts playing a melody immediately. As we can see, the function also notifies the server so that the rest of the clients can also play it.
 
 {% highlight c++ %}
 void AMyPawn::PlayMelody(float StartTime)
